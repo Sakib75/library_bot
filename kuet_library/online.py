@@ -1,11 +1,11 @@
 from firebase import firebase
 
-firebase = firebase.FirebaseApplication("https://kuetlibrary-ca0f8.firebaseio.com/", None)
+firebase = firebase.FirebaseApplication("YOUR DATABASE", None)
 
 
 
 def get_all_cred():
-    result = firebase.get('kuetlibrary-ca0f8/Cred','')
+    result = firebase.get('YOUR DATABASE','')
     return result
 
 
