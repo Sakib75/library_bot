@@ -5,12 +5,15 @@
 
 import scrapy
 from scrapy.loader.processors import TakeFirst,MapCompose
+import datetime
 
-def date_due_process(date_due):
+def renew_decision(self,due):
+    due_date =  self.date_parser(due)
+    remaining = due_date - datetime.datetime.now()
+    return str(remaining)
     
-    print(date_due)
-    date_due_final = date_due
-    return date_due_final
+
+
 
 def clear_renew(remaining_renew):
     renew =  remaining_renew.replace('(','')
@@ -18,6 +21,9 @@ def clear_renew(remaining_renew):
     return renew
 
 class KuetLibraryItem(scrapy.Item):
+    username = scrapy.Field(output_processor = TakeFirst())
+    remaining_days = scrapy.Field(output_processor = TakeFirst())
+    userid = scrapy.Field(output_processor = TakeFirst())
     title = scrapy.Field(output_processor = TakeFirst())
     author = scrapy.Field(output_processor = TakeFirst())
     date_due = scrapy.Field(output_processor = TakeFirst())

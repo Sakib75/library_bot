@@ -10,4 +10,7 @@ from itemadapter import ItemAdapter
 
 class KuetLibraryPipeline:
     def process_item(self, item, spider):
+        item.setdefault('remaining_renew','0')
+        item.setdefault('renew_link','N/A')
+        
         return item

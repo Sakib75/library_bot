@@ -1,8 +1,8 @@
 setup.py
 kuet_library/__init__.py
-kuet_library/cred.py
 kuet_library/items.py
 kuet_library/middlewares.py
+kuet_library/online.py
 kuet_library/pipelines.py
 kuet_library/settings.py
 kuet_library/spiders/__init__.py
